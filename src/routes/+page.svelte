@@ -2,6 +2,7 @@
 	let squares = new Array(3).fill(null).map(() => new Array(3).fill(false));
 
   $: isWinner = squares.every(row => row.every(col => col));
+
 	/**
 	 * @param {number} row
 	 * @param {number} col
@@ -27,26 +28,26 @@
 </script>
 
 <div class="container mx-auto">
-  <article class="p-4 flex flex-col text-center items-center">
+  <div class="p-4 flex flex-col text-center items-center">
     <h1 class="text-3xl font-bold">Acenda todos os blocos</h1>
     <p class="mb-4">O quadrado clicado acende os adjacentes</p>
     
-    <div class="table-wrapper">
-        <table class="table">
-          {#each Array(3) as _, row}
-          <tr>
-            {#each Array(3) as _, col}
-              <td class="w-1/3 h-1/3 p-2">
-                <button 
-                  disabled={isWinner}
-                  on:click={() => clickSquare(row, col)} 
-                  class="square {!isWinner ? 'clickable' : 'cursor-default'} {squares[row][col] ? 'glow' : ''}"
-                ></button>
-              </td>
-            {/each}
-          </tr>
-          {/each}
-        </table>
+    <div>
+      <table class="table">
+        {#each Array(3) as _, row}
+        <tr>
+          {#each Array(3) as _, col}
+          <td class="w-1/3 h-1/3 p-2">
+            <button 
+              disabled={isWinner}
+              on:click={() => clickSquare(row, col)} 
+              class="square {!isWinner ? 'clickable' : 'cursor-default'} {squares[row][col] ? 'glow' : ''}"
+            ></button>
+          </td>
+        {/each}
+        </tr>
+        {/each}
+      </table>
     </div>
 
     {#if isWinner}
@@ -54,16 +55,10 @@
       Parabéns, você conseguiu!
     </h4>
     {/if}
-  </article>
+  </div>
 </div>
 
 <style lang="scss">
-  .table-wrapper {
-    &:after {
-      content: "";
-      display: block;
-    }
-  }
   .table {
     @apply min-w-[375px] min-h-[375px] w-full h-full p-4;
 
