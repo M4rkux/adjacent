@@ -65,7 +65,15 @@
     }
   }
   .table {
-    @apply min-w-[600px] min-h-[600px] w-full h-full p-4;
+    @apply min-w-[375px] min-h-[375px] w-full h-full p-4;
+
+    @screen sm {
+      @apply min-w-[500px] min-h-[500px];
+    }
+
+    @screen md {
+      @apply min-w-[700px] min-h-[700px];
+    }
   }
   
   .square {
