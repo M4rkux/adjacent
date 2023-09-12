@@ -28,7 +28,7 @@
 
 <div class="container mx-auto">
   <article class="p-4 flex flex-col text-center items-center">
-    <h1 class="mb-2 text-3xl font-bold underline">Acenda todos os blocos</h1>
+    <h1 class="text-3xl font-bold">Acenda todos os blocos</h1>
     <p class="mb-4">O quadrado clicado acende os adjacentes</p>
     
     <div class="table-wrapper">
