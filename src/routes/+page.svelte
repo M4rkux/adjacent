@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let squares = new Array(3).fill(null).map(() => new Array(3).fill(false));
 
   $: isWinner = squares.every(row => row.every(col => col));
@@ -7,7 +7,7 @@
 	 * @param {number} row
 	 * @param {number} col
 	 */
-	function clickSquare(row, col) {
+	function clickSquare(row: number, col: number) {
     updateSquareState(row, col);
     updateSquareState(row-1, col);
     updateSquareState(row+1, col);
@@ -19,7 +19,7 @@
 	 * @param {number} row
 	 * @param {number} col
 	 */
-  function updateSquareState(row, col) {
+  function updateSquareState(row: number, col: number) {
     if (isWinner) return;
     if (row < 0 || row >= 3 || col < 0 || col >= 3) return;
 
